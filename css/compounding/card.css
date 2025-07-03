@@ -1,0 +1,52 @@
+﻿.card-compounding{
+    position: relative;
+    display: grid;
+    grid-template-areas:    'photo info'
+                            'bio bio';
+    grid-template-columns: 50% 1fr;
+    grid-gap: 0.5em;
+    padding: 1em;
+    color: var(--tertiary);
+}
+.card-compounding::before{
+    content: '';
+    background: var(--secondary);
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+.card-compounding img{
+    grid-area: photo ;
+    border-radius: 1em;
+    box-shadow: 2px 2px 4px #000;
+    width: 100%;
+    height: auto;
+}
+.card-compounding .info{
+    grid-area: info;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+}
+.card-compounding .body{
+    grid-area: bio;
+    margin-left: 15%;
+}
+
+.card-compounding h2{
+    margin: 0;
+}
+.card-compounding .info .subtitle{
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.card-compounding a{
+    background: var(--primary);
+    color: var(--tertiary);
+    text-decoration: none;
+    padding: 0.5em 1em;
+}

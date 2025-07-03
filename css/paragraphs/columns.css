@@ -1,0 +1,21 @@
+﻿.paragraph--type--columns{
+    width: 100%;
+    /*overflow: scroll;*/
+}
+.paragraph--type--columns > .field--type-entity-reference-revisions{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 1em;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.paragraph--type--columns img{
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    margin: auto;
+}
+.paragraph--type--columns > .field--type-entity-reference-revisions{
+    
+}

@@ -1,0 +1,32 @@
+﻿
+/* Page styles for Compounding theme */
+
+body,
+.dialog-off-canvas-main-canvas,
+.layout-container{
+    min-height: 100dvh;
+}
+.layout-container {
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+.region-primary-menu{
+    background-color: var(--primary);
+    color: var(--tertiary);
+}
+.region-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+main {
+    flex: 1 0;
+}
+
+footer{
+    background-color: var(--secondary);
+    color: var(--tertiary);
+}

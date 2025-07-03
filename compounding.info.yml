@@ -1,0 +1,32 @@
+name: Compounding
+type: theme
+'base theme': stable9
+version: 1.0.0
+libraries:
+  - compounding/global-styling
+  - compounding/compounding
+  - compounding/main-menu
+  - compounding/base
+  - compounding/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - compounding/user
+  core/drupal.dropbutton:
+    - compounding/dropbutton
+  core/drupal.dialog:
+    - compounding/dialog
+  file/drupal.file:
+    - compounding/file
+  core/drupal.progress:
+    - compounding/progress
+description: ''
+core_version_requirement: ^11
+generator: 'starterkit_theme:11.1.6'
+regions:
+  header: Header
+  content: Content
+  footer: Footer
+  page_top: Page top
+  page_bottom: Page bottom
+  

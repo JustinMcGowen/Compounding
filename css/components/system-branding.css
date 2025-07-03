@@ -1,0 +1,29 @@
+﻿.block-system-branding-block{
+    display:grid;
+    grid-template-areas:    'logo name'
+                            'slogan slogan';
+    grid-template-rows: 4em auto;
+    grid-template-columns: auto 1fr;
+    grid-gap: 0em 0.5em;
+    margin: 0.75em;
+}
+.site-logo{
+    grid-area: logo;
+    max-height: 100%;
+}
+.site-logo img{
+    height: 100%;
+}
+.site-name{
+    grid-area: name;
+    font-size: 1.75em;
+    max-width: 13rem;
+}
+.site-name a{
+    color: var(--tertiary);
+    text-decoration: none;
+}
+.site-slogan{
+    grid-area: slogan;
+    opacity: .8;
+}

@@ -1,0 +1,112 @@
+{#
+/**
+ * @file
+ * Custom Paragraph template for type: image_scroller
+ *    Assumes each referenced paragraph in field_slides contains:
+ *      - field_image
+ *      - field_headline
+ *      - field_cta
+ *
+ * Available variables from default paragraph:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+  
+
+  <div{{ attributes.addClass(classes) }}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position: absolute;">
+      <clipPath id="beanClip" clipPathUnits="objectBoundingBox">
+        <path d='M 0,0 V 1.00 H 1.00 V 0 H 0.58 C 0.68,0.09 0.81,0.25 0.87,0.49 1.00,0.93 0.83,0.95 0.57,0.88 0.30,0.81 0.05,0.55 0.09,0.26 0.10,0.14 0.13,0.06 0.17,0 Z' />
+      </clipPath>  
+          
+    </svg>
+    <div class="image-container">
+      {% for item in content.field_image_scroller['#items'] %}
+        <div class="slide {{ loop.first ? 'active' }}">
+          {{ content.field_image_scroller[loop.index0] }}
+        </div>
+      {% endfor %}
+      <div class="image-mask"></div>
+    </div>
+    <div class="slide-content">
+      <h2>{{ content.field_heading }}</h2>
+      {{ content.field_call_to_action_link }}
+    </div>
+    <div class="dots">
+      {% for item in content.field_image_scroller['#items'] %}
+        <span class="dot {{ loop.first ? 'active' }}" data-slide="{{ loop.index0 }}"></span>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+  
+    let currentSlide = 0;
+    let autoScroll = true;
+    let interval = setInterval(nextSlide, 5000);
+  
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+        dots[i].classList.toggle("active", i === index);
+      });
+      currentSlide = index;
+    }
+  
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+  
+    dots.forEach(dot => {
+      dot.addEventListener("click", (e) => {
+        autoScroll = false;
+        clearInterval(interval);
+        showSlide(Number(e.target.dataset.slide));
+      });
+    });
+  </script>
+{% endblock paragraph %}
+

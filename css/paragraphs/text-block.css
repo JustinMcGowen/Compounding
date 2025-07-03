@@ -1,0 +1,11 @@
+﻿
+.node--type-page > .node__content > .field--type-entity-reference-revisions > .field__item > .paragraph--type--text-block{
+    width: 90%;
+    margin: auto;
+}
+
+@media screen and (orientation: landscape) {
+    .node--type-page > .node__content > .field--type-entity-reference-revisions > .field__item > .paragraph--type--text-block{
+        width: 60%;
+    }
+}
