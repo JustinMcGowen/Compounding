@@ -22,7 +22,7 @@
         {% endif %}
       </p>
 
-      {% if content.field_show_location and content.field_show_location['#items'].value == '1' %}
+      {% if content.field_location_is_public and content.field_location_is_public['#items'].value == '1' %}
         <p><strong>Location:</strong> {{ content.field_location }}</p>
       {% endif %}
 
