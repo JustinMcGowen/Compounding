@@ -8,6 +8,7 @@ compounding:
     theme:
       css/components/page.css: {}
       css/compounding/card.css: {}
+      css/compounding/event.css: {}
       
       css/paragraphs/bean-image-scroller.css: {}
       css/paragraphs/text-block.css: {}

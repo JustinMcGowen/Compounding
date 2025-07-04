@@ -1,0 +1,52 @@
+﻿<article class="event-card">
+  <div class="event-card__grid">
+    {% if content.field_image %}
+      <div class="event-card__image">
+        {{ content.field_image }}
+      </div>
+    {% endif %}
+
+    <div class="event-card__details">
+      {% if label %}
+        <h3 class="event-card__title">{{ label }}</h3>
+      {% endif %}
+
+
+      <p><strong>Date:</strong> {{ content.field_start_time[0]['#text']|split(' - ')[0] }}</p>
+      <p>
+        <strong>Time:</strong>
+        {% if content.field_start_time and content.field_end_time %}
+          {{ content.field_start_time[0]['#text']|split(' - ')[1] }} - {{ content.field_end_time[0]['#text']|split(' - ')[1] }}
+        {% else %}
+          {{ content.field_start_time[0]['#text']|split(' - ')[1] }}
+        {% endif %}
+      </p>
+
+      {% if content.field_show_location and content.field_show_location['#items'].value == '1' %}
+        <p><strong>Location:</strong> {{ content.field_location }}</p>
+      {% endif %}
+
+      <p><strong>Calendar Reminders:</strong></p>
+      <div class="event-card__calendar-links">
+        <a href="#" aria-label="Add to Google Calendar">
+          <img src="/path-to-icons/google.svg" alt="Google Calendar" />
+        </a>
+        <a href="#" aria-label="Add to Apple Calendar">
+          <img src="/path-to-icons/apple.svg" alt="Apple Calendar" />
+        </a>
+        <a href="#" aria-label="Add to Outlook">
+          <img src="/path-to-icons/outlook.svg" alt="Outlook Calendar" />
+        </a>
+        <a href="#" aria-label="Download .ics">
+          <img src="/path-to-icons/download.svg" alt="General Calendar Download" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% if content.field_description %}
+    <div class="event-card__description">
+      {{ content.field_description }}
+    </div>
+  {% endif %}
+</article>

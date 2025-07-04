@@ -1,0 +1,60 @@
+﻿.event-card {
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    font-family: sans-serif;
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    &__image {
+        flex: 1 1 300px;
+        img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+    }
+
+    &__details {
+        flex: 1 1 300px;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        margin-top: 0;
+    }
+
+    &__calendar-links {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+
+        a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__description {
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        &__grid {
+            flex-direction: column;
+        }
+
+        &__calendar-links {
+            justify-content: flex-start;
+        }
+    }
+}
