@@ -4,7 +4,8 @@
 }
 .paragraph--type--columns > .field--type-entity-reference-revisions{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: 1fr;
+    justify-items: center;
     grid-gap: 1em;
     width: 90%;
     max-width: 1200px;
@@ -18,4 +19,10 @@
 }
 .paragraph--type--columns > .field--type-entity-reference-revisions{
     
+}
+
+@media screen and (orientation: landscape) {
+    .paragraph--type--columns > .field--type-entity-reference-revisions {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }
