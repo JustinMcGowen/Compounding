@@ -21,28 +21,38 @@
           {{ content.field_start_time[0]['#text']|split(' - ')[1] }}
         {% endif %}
       </p>
-
-      {% if content.field_location_is_public and content.field_location_is_public['#items'].value == '1' %}
-        <p><strong>Location:</strong> {{ content.field_location }}</p>
-      {% endif %}
-
+  
+      {% set location = content.field_location_is_public and content.field_location_is_public['#items'].value == '1' ? content.field_location : 'Contact Organizer For Location'  %}
+      
+      <p><strong>Location:</strong> {{ location }}</p>
+      
+      {% set links = calendar_links(label, 
+        content.field_start_time[0]['#attributes']['datetime']|split('+')[0] ~ '-05:00', 
+        content.field_end_time[0]['#attributes']['datetime']|split('+')[0] ~ '-05:00', 
+        false, 
+        content.field_description, 
+        location) 
+      %}
+      
       <p><strong>Calendar Reminders:</strong></p>
       <div class="event-card__calendar-links">
-        <a href="#" aria-label="Add to Google Calendar">
-          <img src="/path-to-icons/google.svg" alt="Google Calendar" />
-        </a>
-        <a href="#" aria-label="Add to Apple Calendar">
-          <img src="/path-to-icons/apple.svg" alt="Apple Calendar" />
-        </a>
-        <a href="#" aria-label="Add to Outlook">
-          <img src="/path-to-icons/outlook.svg" alt="Outlook Calendar" />
-        </a>
-        <a href="#" aria-label="Download .ics">
-          <img src="/path-to-icons/download.svg" alt="General Calendar Download" />
-        </a>
+          <a href="{{ links['google'].url }}" class="calendar-link-{{ links['google'].type_key }}" target="_blank" aria-label="Add to Google Calendar">
+            <img src="/{{ directory }}/images/google-logo.webp" alt="Google Calendar" />
+          </a>
+          <a href="{{ links['ics'].url }}" class="calendar-link-{{ links['ics'].type_key }}" target="_blank" aria-label="Add to Apple Calendar">
+            <img src="/{{ directory }}/images/apple-logo.webp" alt="Apple Calendar" />
+          </a>
+          <a href="{{ links['webOffice'].url }}" class="calendar-link-{{ links['webOffice'].type_key }}" target="_blank" aria-label="Add to Outlook">
+            <img src="/{{ directory }}/images/windows-logo.webp" alt="Outlook Calendar (Microsoft)" />
+          </a>
+          <a href="{{ links['ics'].url }}" class="calendar-link-{{ links['ics'].type_key }}" target="_blank">Other Calendar Download</a>
       </div>
+          
+      
     </div>
   </div>
+
+
 
   {% if content.field_description %}
     <div class="event-card__description">

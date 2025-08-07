@@ -58,3 +58,9 @@
         }
     }
 }
+
+
+.event-card__calendar-links img{
+    height: 2em;
+    display: inline-flex;
+}
