@@ -11,7 +11,6 @@
         <h3 class="event-card__title">{{ label }}</h3>
       {% endif %}
 
-
       <p><strong>Date:</strong> {{ content.field_start_time[0]['#text']|split(' - ')[0] }}</p>
       <p>
         <strong>Time:</strong>
@@ -26,7 +25,7 @@
       
       <p><strong>Location:</strong> {{ location }}</p>
       
-      {% set links = calendar_links(label, 
+      {% set links = calendar_links(node.label, 
         content.field_start_time[0]['#attributes']['datetime']|split('+')[0] ~ '-05:00', 
         content.field_end_time[0]['#attributes']['datetime']|split('+')[0] ~ '-05:00', 
         false, 
@@ -39,13 +38,13 @@
           <a href="{{ links['google'].url }}" class="calendar-link-{{ links['google'].type_key }}" target="_blank" aria-label="Add to Google Calendar">
             <img src="/{{ directory }}/images/google-logo.webp" alt="Google Calendar" />
           </a>
-          <a href="{{ links['ics'].url }}" class="calendar-link-{{ links['ics'].type_key }}" target="_blank" aria-label="Add to Apple Calendar">
+          <a href="{{ links['ics'].url }}" class="calendar-link-{{ links['ics'].type_key }}" target="_blank" aria-label="Add to Apple Calendar" download="{{ node.label }}.ics">
             <img src="/{{ directory }}/images/apple-logo.webp" alt="Apple Calendar" />
           </a>
           <a href="{{ links['webOffice'].url }}" class="calendar-link-{{ links['webOffice'].type_key }}" target="_blank" aria-label="Add to Outlook">
             <img src="/{{ directory }}/images/windows-logo.webp" alt="Outlook Calendar (Microsoft)" />
           </a>
-          <a href="{{ links['ics'].url }}" class="calendar-link-{{ links['ics'].type_key }}" target="_blank">Other Calendar Download</a>
+          <a href="{{ links['ics'].url }}" class="calendar-link-{{ links['ics'].type_key }}" target="_blank" download="{{ node.label }}.ics">Other Calendar Download</a>
       </div>
           
       
