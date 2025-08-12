@@ -1,0 +1,15 @@
+﻿<a href={{ url }}>
+  <div class="event-teaser">
+    {% if content.field_image %}
+      <div class="event-teaser__image">
+        {{ content.field_image }}
+      </div>
+    {% endif %}
+    {% set future_event = "now"|date('U') < node.field_start_time.value|date('U') %}
+    <div class="event-teaser__content">
+      <div class="event-teaser__flair" style={{ future_event ? "--flair-color:green;" : "--flair-color:red;"}}>{{ future_event ? "Upcoming" : "Concluded" }}</div>
+      <h3 class="event-teaser__title">{{ node.label }}</h3>
+      <p class="event-teaser__info">{{ node.field_start_time.value|format_date('medium') }} ▪ More Info →</p>
+    </div>
+  </div>
+</a>

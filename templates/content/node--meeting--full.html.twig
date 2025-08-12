@@ -1,5 +1,8 @@
 ﻿<article class="event-card">
   <div class="event-card__grid">
+    {% if node.label %}
+      <h1 class="event-card__title">{{ node.label }}</h1>
+    {% endif %}
     {% if content.field_image %}
       <div class="event-card__image">
         {{ content.field_image }}
@@ -7,29 +10,28 @@
     {% endif %}
 
     <div class="event-card__details">
-      {% if label %}
-        <h3 class="event-card__title">{{ label }}</h3>
-      {% endif %}
 
-      <p><strong>Date:</strong> {{ content.field_start_time[0]['#text']|split(' - ')[0] }}</p>
+      <p><strong>Date:</strong> {{ node.field_start_time.value|format_date('short_date', 'd/m/y') }}</p>
       <p>
         <strong>Time:</strong>
-        {% if content.field_start_time and content.field_end_time %}
-          {{ content.field_start_time[0]['#text']|split(' - ')[1] }} - {{ content.field_end_time[0]['#text']|split(' - ')[1] }}
+        {% if node.field_start_time and content.field_end_time %}
+          {{ node.field_start_time.value|date('g:ia') }} - {{ node.field_end_time.value|date('g:ia') }}
         {% else %}
-          {{ content.field_start_time[0]['#text']|split(' - ')[1] }}
+          {{ node.field_start_time.value|date('g:ia') }}
         {% endif %}
       </p>
   
-      {% set location = content.field_location_is_public and content.field_location_is_public['#items'].value == '1' ? content.field_location : 'Contact Organizer For Location'  %}
+      {% set public_location = node.field_location_is_public.value and node.field_location_is_public.value == '1' %}
+      {% set is_member = 'member' in user.getroles() %}
+      {% set location = (public_location or is_member) ? node.field_location.value : 'Log In or Contact Organizer For Location'  %}
       
       <p><strong>Location:</strong> {{ location }}</p>
       
       {% set links = calendar_links(node.label, 
-        content.field_start_time[0]['#attributes']['datetime']|split('+')[0] ~ '-05:00', 
-        content.field_end_time[0]['#attributes']['datetime']|split('+')[0] ~ '-05:00', 
+        node.field_start_time.value|format_date('html_datetime'), 
+        node.field_end_time.value|format_date('html_datetime'), 
         false, 
-        content.field_description, 
+        node.field_description.value, 
         location) 
       %}
       
@@ -49,13 +51,14 @@
           
       
     </div>
+    {% if content.field_description %}
+      <div class="event-card__description">
+        {{ content.field_description }}
+      </div>
+    {% endif %}
   </div>
 
 
 
-  {% if content.field_description %}
-    <div class="event-card__description">
-      {{ content.field_description }}
-    </div>
-  {% endif %}
+  
 </article>

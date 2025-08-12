@@ -1,0 +1,105 @@
+.calendar-card {
+    width: 200px;
+    border-radius: 8px;
+    border: 2px solid #888;
+    background-color: var(--tertiary);
+    color: black;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: fixed;
+    bottom: 3em;
+    right: 1em;
+    z-index: 2;
+}
+.calendar-card a{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.calendar-card__header {
+    background-color: var(--secondary);
+    padding: 1em 0 4px;
+    font-weight: bold;
+    border-radius: 6px 6px 0 0;
+}
+.calendar-card__rings{
+    width: 0.5em;
+    height: 1.5em;
+    border-radius: 1em;
+    background: #eee;
+    position: absolute;
+    top:0;
+    transform: translate(-50%, -50%);
+    border: 2px solid #888;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.calendar-card__rings:nth-child(1){
+    left:20%;
+}
+.calendar-card__rings:nth-child(2) {
+    left:50%;
+}
+.calendar-card__rings:nth-child(3){
+    left:80%;
+}
+
+.calendar-card__body {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-radius:  0 0 6px 6px;
+}
+
+.calendar-card__date {
+    flex-shrink: 0;
+    text-wrap: nowrap;
+}
+
+.calendar-card__day {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.calendar-card__suffix {
+    font-size: 0.8em;
+    vertical-align: top;
+}
+
+.calendar-card__details {
+    text-align: left;
+    font-size: 0.85em;
+}
+
+.calendar-card__title {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.calendar-card__button {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: var(--primary);
+    color: var(--tertiary);
+    text-decoration: none;
+    font-size: 0.75em;
+}
+
+.calendar-card__button:hover {
+    background: linear-gradient(#0001,#0001), var(--primary);
+}
+
+.calendar-card__icon {
+    margin-left: 4px;
+}
+@media(orientation: landscape) {
+    .calendar-card {
+        top: 12vh;
+        bottom: unset;
+        right: 5vw;
+    }
+}

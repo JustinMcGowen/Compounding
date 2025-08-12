@@ -9,6 +9,7 @@ compounding:
       css/components/page.css: {}
       css/compounding/card.css: {}
       css/compounding/event.css: {}
+      css/compounding/calendar-event.css: {}
       
       css/paragraphs/bean-image-scroller.css: {}
       css/paragraphs/text-block.css: {}

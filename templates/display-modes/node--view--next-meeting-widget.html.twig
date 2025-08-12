@@ -1,0 +1,41 @@
+{#
+  Template for the Calendar Card display mode.
+  Variables expected:
+  - event_date: a date object or string (must be parseable by "date" filter)
+  - event_name: the event name/title
+  - calendar_link: URL to save to calendar
+#}
+
+{% set public_location = node.field_location_is_public.value and node.field_location_is_public.value == '1' %}
+{% set is_member = 'member' in user.getroles() %}
+{% set location = (public_location or is_member) ? node.field_location.value : 'Log In or Contact Organizer For Location'  %}
+{% set calendar_link = calendar_link('ics', 
+  node.label, 
+  node.field_start_time.value|format_date('html_datetime'), 
+  node.field_end_time.value|format_date('html_datetime'), 
+  false,
+  node.field_description.value,
+  location)
+%}
+
+<div class="calendar-card">
+  <a class="calendar-card__header" href="{{ url }}">
+    <div class="calendar-card__rings"></div>
+    <div class="calendar-card__rings"></div>
+    <div class="calendar-card__rings"></div>
+    {{ node.field_start_time.value|date("F") }}
+  </a>
+
+  <div class="calendar-card__body">
+    <a class="calendar-card__date"  href="{{ url }}">
+      <span class="calendar-card__day">{{ node.field_start_time.value|date("j") }}</span>
+      <span class="calendar-card__suffix">{{ node.field_start_time.value|date("S") }}</span>
+    </a>
+    <a class="calendar-card__details"  href="{{ url }}">
+      <div class="calendar-card__title">{{ node.label }}</div>
+    </a>
+    <a href="{{ calendar_link }}" class="calendar-card__button" download="{{ node.label }}.ics">
+      Save to Calendar <span class="calendar-card__icon">⬇️</span>
+    </a>
+  </div>
+</div>
