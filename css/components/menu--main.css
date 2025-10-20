@@ -59,6 +59,11 @@ label.hamburger-toggle div:nth-child(3){
 .main-nav:has(#hamburger-toggle:checked) #main-menu{
     left: 0%;
 }
+.main-nav:has(#hamburger-toggle:checked) label.hamburger-toggle{
+    display: fixed;
+    top: 2em;
+    right: 1em;
+}
 .main-nav:has(#hamburger-toggle:checked) label.hamburger-toggle div:nth-child(1){
     top:50%;
     transform: translateY(-50%) rotate(-135deg);
