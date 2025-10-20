@@ -2,6 +2,9 @@
     margin: auto;
     width: 90%;
 }
+.view-meetings-list > .view-meetings-list{
+    width: 100%;
+}
 
 @media screen and (orientation: landscape) {
     .view-meetings-list{
