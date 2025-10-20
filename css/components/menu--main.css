@@ -60,9 +60,9 @@ label.hamburger-toggle div:nth-child(3){
     left: 0%;
 }
 .main-nav:has(#hamburger-toggle:checked) label.hamburger-toggle{
-    display: fixed;
-    top: 2em;
-    right: 1em;
+    position: fixed;
+    top: 3em;
+    right: 0.5em;
 }
 .main-nav:has(#hamburger-toggle:checked) label.hamburger-toggle div:nth-child(1){
     top:50%;
@@ -90,6 +90,7 @@ label.hamburger-toggle div:nth-child(3){
     #main-menu{
         position: unset;
         left: 0;
+        top: 0;
         width: auto;
         background: none;
         height: auto;    
