@@ -14,6 +14,8 @@
 .event-card__image {
     grid-area: image;
     img {
+        max-width: 20em;
+        width: auto;
         max-width: 100%;
         border-radius: 6px;
     }
@@ -80,7 +82,7 @@ a:has(.event-teaser){
     overflow: hidden;
     justify-items: center;
     justify-content: space-between;
-    height: 15em;
+    height: 12em;
     transition: box-shadow .25s;
 }
 .event-teaser:hover{
@@ -105,7 +107,7 @@ a:has(.event-teaser){
     grid-area: content;
     display: block;
     width: fit-content;
-    margin: auto;
+    margin: auto auto auto 1em;
     font-size: 1.5em;
 }
 .event-teaser__flair{

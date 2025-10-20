@@ -1,17 +1,21 @@
 ﻿
 #main-menu{
     --menu-bottom-spacing: 0.75em;
-    position: absolute;
-    left: -100%;
+    position: fixed;
+    left: -100dvw;
     transition: left 0.25s;
-    width: 100dvw;
-    height: 80dvh;
+    width: calc(100dvh - 2em);
+    height: calc(100dvh - 4em);
     background: var(--quaternary);
     color: var(--tertiary);
     margin: 0;
-    padding: 0;
 
     font-weight: bold;
+    
+    line-height: 2em;
+    font-size: 2em;
+    z-index: 1;
+    padding: 2em 1em;
 }
 #main-menu a{
     text-decoration: none;
@@ -25,6 +29,7 @@ label.hamburger-toggle{
     height: 4em;
     margin: 1em;
     aspect-ratio: 1/1;
+    z-index:1;
 }
 label.hamburger-toggle div{
     width: 100%;
@@ -82,7 +87,10 @@ label.hamburger-toggle div:nth-child(3){
         left: 0;
         width: auto;
         background: none;
-        height: auto;
+        height: auto;    
+        line-height: 1em;
+        font-size: 1em;
+        padding: 0;
     }
     #main-menu .menu{
         flex-direction: row;

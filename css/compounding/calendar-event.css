@@ -88,6 +88,9 @@
     text-decoration: none;
     font-size: 0.75em;
 }
+a.calendar-card__button{
+    color: var(--tertiary);
+}
 
 .calendar-card__button:hover {
     background: linear-gradient(#0001,#0001), var(--primary);
