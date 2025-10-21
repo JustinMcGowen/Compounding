@@ -13,10 +13,12 @@
 
     font-weight: bold;
     
-    line-height: 2em;
-    font-size: 2em;
+    font-size: 1.75em;
     z-index: 1;
     padding: 2em 1em;
+}
+#main-menu ul.menu{
+    gap: 0.75em;
 }
 #main-menu a{
     text-decoration: none;

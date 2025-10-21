@@ -17,7 +17,7 @@
 .site-name{
     grid-area: name;
     font-size: 1.75em;
-    max-width: 8rem;
+    max-width: 6em;
 }
 .site-name a{
     color: var(--tertiary);
