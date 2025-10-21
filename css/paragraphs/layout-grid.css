@@ -3,6 +3,7 @@
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 0.5em;
     margin: auto;
+    width: 90%;
 }
 
 .paragraph-grid > *{
@@ -29,8 +30,12 @@
     }
 }
 
+.paragraph-grid field__item:has( > img){
+    display: flex;
+}
 .paragraph-grid img{
     max-width: 100%;
     width: auto;
     height: auto;
+    margin: auto;
 }
