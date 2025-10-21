@@ -21,3 +21,15 @@
         grid-column: span var(--desktop-span);
     }
 }
+
+@media screen and (orientation: landscape) {
+    .paragraph-grid {
+        width: 60%;
+    }
+}
+
+.paragraph-grid img{
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
