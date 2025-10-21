@@ -14,7 +14,8 @@ compounding:
       
       css/paragraphs/bean-image-scroller.css: {}
       css/paragraphs/text-block.css: {}
-      css/paragraphs/columns.css: {}
+      css/paragraphs/layout-columns.css: {}
+      css/paragraphs/layout-grid.css: {}
 
 main-menu:
   css:

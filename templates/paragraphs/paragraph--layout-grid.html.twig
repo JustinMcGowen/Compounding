@@ -1,0 +1,27 @@
+﻿{# paragraph.twig #}
+
+{% set mobileSpans = paragraph.field_spans_mobile.value ?? '12' %}
+{% set tabletSpans = paragraph.field_spans_tablet.value ?? '6' %}
+{% set desktopSpans = paragraph.field_spans_desktop.value ?? '4' %}
+{% set mobileSpans = mobileSpans|trim|split(' ') %}
+{% set tabletSpans = tabletSpans|trim|split(' ') %}
+{% set desktopSpans = desktopSpans|trim|split(' ') %}
+
+<div class="paragraph-grid">
+
+    {% for key,value in content.field_grid_items['#items'] %}
+        {% set mobSpan = mobileSpans[( loop.index - 1 ) % (mobileSpans | length)] %}
+        {% set tabSpan = tabletSpans[( loop.index - 1 ) % (tabletSpans | length)] %}
+        {% set desSpan = desktopSpans[( loop.index - 1 ) % (desktopSpans | length)] %}
+        {% set attr = {
+                'style':'--mobile-span: '~mobSpan~'; --tablet-span: '~tabSpan~'; --desktop-span: '~desSpan~';'
+             }
+         %}
+        {% if content.field_grid_items[key]['#attributes'] %} {# if attributes are already present, we want to keep them and merge with new styles #}
+            {% set attr = attr | merge(content.field_grid_items[key]['#attributes']) %}
+        {% endif %}
+        {% set item = content.field_grid_items[key] | merge({'#attributes': attr}) %}
+        {{ item }}
+    {% endfor %}
+
+</div>

@@ -1,0 +1,23 @@
+﻿.paragraph-grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0.5em;
+}
+
+.paragraph-grid > *{
+    --mobile-span: 12;
+    --tablet-span: 6;
+    --desktop-span: 4;
+    grid-column: span var(--mobile-span);
+}
+
+@media (min-width: 576px) {
+    .paragraph-grid > * {
+        grid-column: span var(--tablet-span);
+    }
+}
+@media (min-width: 768px) {
+    .paragraph-grid > * {
+        grid-column: span var(--desktop-span);
+    }
+}

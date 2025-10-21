@@ -4,6 +4,7 @@
 }
 html{
     font-family: 'Expressway', sans-serif;
+    font-size: 1.15rem;
 }
 body{
     background-color: var(--tertiary);
