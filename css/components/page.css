@@ -24,8 +24,8 @@ header,
 
 main {
     flex: 1 0;
-    padding-bottom: 10em;
     position: relative;
+    padding-bottom: 1em;
 }
 
 footer{
@@ -35,6 +35,6 @@ footer{
 
 @media (min-width: 768px) {
     main {
-        padding-bottom: 1em;
+        
     }
 }

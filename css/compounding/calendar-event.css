@@ -1,8 +1,7 @@
-.block-views:has(.calendar-card){
+.region-bottom-widgets:has(.calendar-card){
     position: sticky;
+    bottom: 1em;
     z-index: 1;
-    height: 0;
-    bottom: 10em;
 }
 
 .calendar-card {
@@ -14,8 +13,8 @@
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     position: relative;
-    right: 1em;
-    z-index: 2;
+    z-index: 1;
+    margin: 0 1em 1em auto;
 }
 .calendar-card a{
     display: block;
