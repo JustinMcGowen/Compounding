@@ -30,7 +30,7 @@
     }
 }
 
-.paragraph-grid field__item:has( > img){
+.paragraph-grid .field__item:has( > img){
     display: flex;
 }
 .paragraph-grid img{
