@@ -98,6 +98,12 @@ a:has(.event-teaser){
     align-items: center;
     background-color: var(--primary);
 }
+.event-teaser__image .field--name-field-image,
+.event-teaser__image .field--name-field-image article,
+.event-teaser__image .field--name-field-image article .field--type-image
+{
+    height: 100%;
+}
 .event-teaser__image .field__item:has(> img){
     display: flex;
     height: 100%;
