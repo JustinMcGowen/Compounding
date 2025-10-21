@@ -1,6 +1,9 @@
-﻿
+﻿@font-face{
+    font-family: 'Expressway';
+    src: url('../fonts/ExpresswayRg-Regular.ttf');
+}
 html{
-    font-family:sans-serif;
+    font-family: 'Expressway', sans-serif;
 }
 body{
     background-color: var(--tertiary);
