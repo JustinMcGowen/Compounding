@@ -107,7 +107,7 @@ a.calendar-card__button{
 @media(orientation: landscape) {
     .block-views:has(.calendar-card){
         position: fixed;
-        top: 12vh;
+        top: 14vh;
         bottom: unset;
         right: 1.5em;
     }

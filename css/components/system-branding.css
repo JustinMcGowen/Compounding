@@ -27,3 +27,14 @@
     grid-area: slogan;
     opacity: .8;
 }
+
+#block-compounding-brandingforfooter{
+    display: flex;
+    flex-direction: row;
+    margin: .5em;
+}
+#block-compounding-brandingforfooter img{
+    height: 1em;
+    width: auto;
+    margin-right: 0.25em;
+}
