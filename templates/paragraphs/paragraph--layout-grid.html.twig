@@ -6,7 +6,7 @@
 {% set mobileSpans = mobileSpans|trim|split(' ') %}
 {% set tabletSpans = tabletSpans|trim|split(' ') %}
 {% set desktopSpans = desktopSpans|trim|split(' ') %}
-{{dump(desktopSpans)}}
+{{ dump(desktopSpans) }}
 <div class="paragraph-grid">
 
     {% for key,value in content.field_grid_items['#items'] %}
