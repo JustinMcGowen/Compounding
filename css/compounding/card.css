@@ -1,20 +1,20 @@
-﻿.card-compounding{
+.card-compounding{
     position: relative;
     display: grid;
     grid-template-areas:    'photo info'
                             'bio bio';
     grid-template-columns: auto 1fr;
     width: fit-content;
-    max-width: 28em;
+    max-width: 32em;
     grid-gap: 0.5em 1.25em;
-    padding: 1em;
+    padding: 0 1em 1em 0;
     color: var(--primary);
 }
 .card-compounding::before{
     content: '';
     background: var(--secondary);
-    width: calc(100% - 2em);
-    height: calc(100% - 2em);
+    width: calc(100% - 1em);
+    height: calc(100% - 1em);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -30,7 +30,7 @@
 }
 .card-compounding .info{
     grid-area: info;
-    margin-top: 15%;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
