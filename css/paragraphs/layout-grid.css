@@ -30,10 +30,10 @@
     }
 }
 
-.paragraph-grid .field__item:has( > img){
+.paragraph-grid .field__item:has( .paragraph--type--image){
     display: flex;
 }
-.paragraph-grid img{
+.paragraph-grid .paragraph--type--image img{
     max-width: 100%;
     width: auto;
     height: auto;

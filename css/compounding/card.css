@@ -26,6 +26,7 @@
     box-shadow: 2px 2px 4px #000;
     width: auto;
     height: 12em;
+    min-height: 8em;
     background-color: var(--primary);
 }
 .card-compounding .info{
