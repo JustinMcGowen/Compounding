@@ -4,6 +4,7 @@
 footer .region-footer{
     display: flex;
     flex-direction: column;
+    margin: 0.5em;
 }
 
 @media screen and (orientation: landscape) {

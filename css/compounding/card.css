@@ -3,16 +3,18 @@
     display: grid;
     grid-template-areas:    'photo info'
                             'bio bio';
-    grid-template-columns: 50% 1fr;
-    grid-gap: 0.5em;
+    grid-template-columns: auto 1fr;
+    width: fit-content;
+    max-width: 28em;
+    grid-gap: 0.5em 1.25em;
     padding: 1em;
     color: var(--tertiary);
 }
 .card-compounding::before{
     content: '';
     background: var(--secondary);
-    width: 90%;
-    height: 90%;
+    width: calc(100% - 2em);
+    height: calc(100% - 2em);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -22,31 +24,40 @@
     grid-area: photo ;
     border-radius: 1em;
     box-shadow: 2px 2px 4px #000;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 12em;
+    background-color: var(--primary);
 }
 .card-compounding .info{
     grid-area: info;
     margin-top: 15%;
     display: flex;
     flex-direction: column;
+    gap: 0.5em;
 }
 .card-compounding .body{
     grid-area: bio;
-    margin-left: 15%;
+    margin-left: 3.5em;
+    font-size: 0.75em;
 }
 
 .card-compounding h2{
     margin: 0;
+    width: fit-content;
 }
 .card-compounding .info .subtitle{
     font-style: italic;
     font-weight: lighter;
+    width: fit-content;
 }
 
-.card-compounding a{
+.card-compounding .info .field--name-field-promo{
+    margin-top: auto;
     background: var(--primary);
+    padding: 0.5em 1em;
+    width: fit-content;
+}
+.card-compounding a{
     color: var(--tertiary);
     text-decoration: none;
-    padding: 0.5em 1em;
 }

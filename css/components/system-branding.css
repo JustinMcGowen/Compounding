@@ -31,7 +31,6 @@
 #block-compounding-brandingforfooter{
     display: flex;
     flex-direction: row;
-    margin: .5em;
 }
 #block-compounding-brandingforfooter img{
     height: 1em;

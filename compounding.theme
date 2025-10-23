@@ -64,3 +64,17 @@ function compounding_preprocess_html(array &$variables) {
     'quaternary_color' => theme_get_setting('quaternary_color'),
   ];
 }
+
+
+
+/**
+ * Implements hook_theme_suggestions_user_alter().
+ */
+//needed because views do not automatically add twig naming suggestions for user
+function compounding_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['elements']['#view_mode'])) {
+    $view_mode = $variables['elements']['#view_mode'];
+    $suggestions[] = 'user__' . $view_mode;
+  }
+//    $suggestions[] = 'node__user__card_compounding';
+}

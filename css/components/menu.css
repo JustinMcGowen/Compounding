@@ -4,7 +4,6 @@
  */
 
 ul.menu {
-  margin-left: 1em; /* LTR */
   padding: 0;
   list-style: none outside;
   text-align: left; /* LTR */

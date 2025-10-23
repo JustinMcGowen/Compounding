@@ -1,0 +1,17 @@
+﻿<div class="card-compounding">
+  {{ content.field_profile_photo }}
+  <div class="info">
+      <h2>{{ user.field_first_name.value }}<br>{{ user.field_last_name.value }}</h2>
+      <div class="subtitle">{{ content.field_role ?? 'Member' }}</div>
+      {{ content.field_promo }}
+  </div>
+  <div class="body">
+    {{ user.field_bio.value }}
+  </div>
+  
+  
+  
+{#   <a href="{{ content.field_link.0.uri }}">Read more</a> #}
+  
+
+</div>
