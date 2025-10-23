@@ -10,6 +10,7 @@
 .site-logo{
     grid-area: logo;
     max-height: 100%;
+    display: contents;
 }
 .site-logo img{
     height: 100%;
