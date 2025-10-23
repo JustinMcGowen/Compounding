@@ -1,4 +1,4 @@
-<div class="card-compounding" style='--primary:teal;'>
+<div class="card-compounding" >
   {% if user.field_profile_photo.value %}
     {{ content.field_profile_photo }}
   {% else %}
@@ -6,7 +6,7 @@
   {% endif %}
   <div class="info">
       <h2>{{ user.field_first_name.value }}<br>{{ user.field_last_name.value }}</h2>
-      <div class="subtitle">{{ user.field_role.value ?? 'Member' }}</div>
+      <div class="subtitle">{{ user.field_role.value ? user.field_role.value : 'Member' }}</div>
       {% if user.field_promo.0 %}
         <a href="{{ user.field_promo.0.url }}" target='_blank'>{{ user.field_promo.0.title }}</a>
       {% endif %}
@@ -15,6 +15,5 @@
     {{ user.field_bio.value }}
   </div>
 
-  
 
 </div>
