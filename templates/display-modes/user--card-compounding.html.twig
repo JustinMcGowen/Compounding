@@ -3,15 +3,14 @@
   <div class="info">
       <h2>{{ user.field_first_name.value }}<br>{{ user.field_last_name.value }}</h2>
       <div class="subtitle">{{ content.field_role ?? 'Member' }}</div>
-      {{ content.field_promo }}
+      {% if content.field_promo %}
+        <a href="{{ user.field_promo.0.url }}" target='_blank'>{{ user.field_promo.0.title }}</a>
+      {% endif %}
   </div>
   <div class="body">
     {{ user.field_bio.value }}
   </div>
-  
-  
-  
-{#   <a href="{{ content.field_link.0.uri }}">Read more</a> #}
+
   
 
 </div>

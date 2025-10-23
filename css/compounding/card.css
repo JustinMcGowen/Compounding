@@ -8,7 +8,7 @@
     max-width: 28em;
     grid-gap: 0.5em 1.25em;
     padding: 1em;
-    color: var(--tertiary);
+    color: var(--primary);
 }
 .card-compounding::before{
     content: '';
@@ -52,12 +52,13 @@
 }
 
 .card-compounding .info .field--name-field-promo{
+    
+}
+.card-compounding .info a{
+    color: var(--tertiary);
+    text-decoration: none;
     margin-top: auto;
     background: var(--primary);
     padding: 0.5em 1em;
     width: fit-content;
-}
-.card-compounding a{
-    color: var(--tertiary);
-    text-decoration: none;
 }
